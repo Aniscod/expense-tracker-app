@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useToast } from 'vue-toastification';
+
+const toast = useToast()
 
 // Define a prop to receive and emit transaction updates
 const props = defineProps({
@@ -35,6 +38,7 @@ const addTransaction = () => {
     // Reset form
     newTransaction.value.text = '';
     newTransaction.value.amount = null;
+    toast.success('Transaction Added Succesfully');
 };
 
 
@@ -59,7 +63,6 @@ const addTransaction = () => {
             <div class="form-control">
                 <label for="amount">
                     Amount 
-                    <br>(negative - expenses, positive - income)
                 </label>
                 <input 
                     v-model.number="newTransaction.amount" 

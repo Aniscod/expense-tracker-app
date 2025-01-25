@@ -5,9 +5,13 @@ import IncomeExpensis from './components/IncomeExpensis.vue';
 import TransactionList from './components/TransactionList.vue';
 import AddTransaction from './components/AddTransaction.vue';
 
+
+
 import { ref,computed,watch  } from 'vue';
 
+import { useToast } from 'vue-toastification';
 
+const toast = useToast()
 
 // Function to load transactions from local storage
 const loadTransactions = () => {
@@ -34,20 +38,25 @@ const handleAddTransaction = (newTransaction) => {
         id: Date.now(), // or use a more robust ID generation
         ...newTransaction
     });
+    
+
 };
 
 const handleDeleteTransaction = (id) => {
     transactions.value = transactions.value.filter(t => t.id !== id);
-};
+    toast.error('Transaction Deleted Successfully')
 
+};
 
 </script>
 
 <template>
-    <Header />
-    <Balance :total="total" />
-    <IncomeExpensis :transactions="transactions" />
-    <TransactionList :transactions="transactions" @delete-transaction="handleDeleteTransaction" />
-    <AddTransaction :transactions="transactions"  @add-transaction="handleAddTransaction"/>
+    
+        <Header />
+        <Balance :total="total" />
+        <IncomeExpensis :transactions="transactions" />
+        <TransactionList :transactions="transactions" @delete-transaction="handleDeleteTransaction" />
+        <AddTransaction :transactions="transactions"  @add-transaction="handleAddTransaction"/>
+   
 </template>
   
