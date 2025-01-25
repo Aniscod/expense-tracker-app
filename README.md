@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vue-expense-tracker
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -27,3 +28,7 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+# expense-tracker-app
+An expense tracker app built with Vue 3 and the composition API.         Add and remove expenses/income     Track balance     Save data to local storage
+>>>>>>> 17ba5e43aada87130e0202c51844aa61357d0e5d
