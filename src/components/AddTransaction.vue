@@ -47,11 +47,14 @@ const addTransaction = () => {
 </script>
 
 <template>
+
+
     <div class="add-transaction">
         <h3>Add new Transaction</h3>
+        <br>
         <form @submit.prevent="addTransaction">
-            <div class="form-control">
-                <label for="text">Text</label>
+            <div class="form-controll">
+                <!-- <label for="text">Text</label> -->
                 <input 
                     v-model="newTransaction.text" 
                     type="text" 
@@ -60,19 +63,25 @@ const addTransaction = () => {
                     required
                 >
             </div>
-            <div class="form-control">
-                <label for="amount">
+            <br>
+            <div class="form-controll">
+                <!-- <label for="amount">
                     Amount 
-                </label>
+                </label> -->
                 <input 
-                    v-model.number="newTransaction.amount" 
+                    v-model="newTransaction.amount" 
                     type="number" 
+                    step="0.01"
                     id="amount" 
                     placeholder="Enter amount..."
                     required
                 >
-                <button type="submit" class="btn">Add Transaction</button>
+                <br>
+                <button type="submit" class="btnn" >Add Transaction</button>
             </div>
         </form>
     </div>
+ 
+
 </template>
+
